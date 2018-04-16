@@ -1,10 +1,5 @@
 package org.zhaowl.console;
 
-import org.zhaowl.userInterface.ELEngine;
-import org.zhaowl.utils.SimpleClass;
-
-import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxOWLObjectRendererImpl;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,11 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxOntologyFormat;
 import org.semanticweb.HermiT.Reasoner;
@@ -40,7 +31,10 @@ import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 import org.zhaowl.learner.ELLearner;
 import org.zhaowl.oracle.ELOracle;
-import org.zhaowl.settings.*;
+import org.zhaowl.userInterface.ELEngine;
+import org.zhaowl.utils.Metrics;
+
+import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxOWLObjectRendererImpl;
 
 public class consoleLearner {
 
@@ -143,16 +137,7 @@ public class consoleLearner {
 	}
 
 	public void doIt(String[] args) {
-		/*
-		// FOR TESTING 
-		args = new String[12];
-		args[0] = "src/main/resources/ontologies/university.owl";
-		args[1] = "on";
-		for(int i = 2; i < 8; i++)
-			args[i] = "t";
-		for(int i = 8; i < 12; i++)
-			args[i] = "f";
-		*/
+	 
 		try {
 			// ontology from parameters
 			filePath = args[0];
@@ -181,10 +166,10 @@ public class consoleLearner {
 				
 				
 				
-				new SimpleClass(rendering).showCIT(axiomsT,true);
+				new Metrics(rendering).showCIT(axiomsT,true);
 				
 				System.out.println("Hypothesis TBox logical axioms: " + ontologyH.getAxioms().size());
-				new SimpleClass(rendering).showCIT(ontologyH.getAxioms(),false);
+				new Metrics(rendering).showCIT(ontologyH.getAxioms(),false);
 
 			} catch (Throwable e) {
 				System.out.println("error in learner call ----- " + e);
@@ -492,8 +477,8 @@ public class consoleLearner {
 			System.out.println("Loaded successfully.");
 			System.out.println();
 
-			concepts = new SimpleClass(rendering).getSuggestionNames("concept", newFile);
-			roles = new SimpleClass(rendering).getSuggestionNames("role", newFile);
+			concepts = new Metrics(rendering).getSuggestionNames("concept", newFile);
+			roles = new Metrics(rendering).getSuggestionNames("role", newFile);
 
 			System.out.println("Total number of concepts is: " + concepts.size());
 

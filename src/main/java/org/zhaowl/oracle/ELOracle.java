@@ -20,7 +20,7 @@ import org.zhaowl.tree.ELEdge;
 import org.zhaowl.tree.ELNode;
 import org.zhaowl.tree.ELTree;
 import org.zhaowl.userInterface.ELEngine;
-import org.zhaowl.utils.SimpleClass;
+import org.zhaowl.utils.Metrics;
 
 public class ELOracle {
 	public OWLReasoner reasonerForH;
@@ -90,6 +90,7 @@ public class ELOracle {
 				}
 		}
 		// System.out.println(tree.getRootNode());
+		reasonerForH.dispose();
 		oldTree = null;
 		nodes = null;
 		left = null;
@@ -292,7 +293,7 @@ public class ELOracle {
 						for (int k = 0; k < classAux.size(); k++) {
 
 							nod.edges.add(new ELEdge(auxEdges.get(j).label, new ELNode(new ELTree(
-									engineForT.parseClassExpression(new SimpleClass().fixAxioms(classAux.get(k)))))));
+									engineForT.parseClassExpression(new Metrics().fixAxioms(classAux.get(k)))))));
 
 							// add class to new node
 							nod.edges.get(nod.edges.size() - 1).node.label.add(classAux.get(k));
