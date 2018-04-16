@@ -20,7 +20,6 @@ import org.zhaowl.tree.ELEdge;
 import org.zhaowl.tree.ELNode;
 import org.zhaowl.tree.ELTree;
 import org.zhaowl.userInterface.ELEngine;
-import org.zhaowl.userInterface.ELInterface;
 import org.zhaowl.utils.SimpleClass;
 
 import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxOWLObjectRendererImpl;
