@@ -1,4 +1,6 @@
-# ZhaOWL_ELLearner_NoUI
+# [OUTDATED] ZhaOWL_ELLearner_NoUI
+# New version in: https://github.com/ExactLearner
+
 ZhaOWL version without user interface
 Should improve execution in console
 
